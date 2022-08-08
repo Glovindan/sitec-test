@@ -28,12 +28,190 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.RCCDataFilePathButton = new System.Windows.Forms.Button();
+            this.appealsDataPathButton = new System.Windows.Forms.Button();
+            this.RCCDataFilePath = new System.Windows.Forms.TextBox();
+            this.appealsDataFilePath = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ExecutorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RCCCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appealsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentsTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveAsRtf = new System.Windows.Forms.Button();
+            this.leadTimeValueLabel = new System.Windows.Forms.Label();
+            this.leadTimeLabel = new System.Windows.Forms.Label();
+            this.countButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // RCCDataFilePathButton
+            // 
+            this.RCCDataFilePathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RCCDataFilePathButton.Location = new System.Drawing.Point(248, 12);
+            this.RCCDataFilePathButton.Name = "RCCDataFilePathButton";
+            this.RCCDataFilePathButton.Size = new System.Drawing.Size(135, 29);
+            this.RCCDataFilePathButton.TabIndex = 0;
+            this.RCCDataFilePathButton.Text = "Выбрать файл";
+            this.RCCDataFilePathButton.UseVisualStyleBackColor = true;
+            // 
+            // appealsDataPathButton
+            // 
+            this.appealsDataPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.appealsDataPathButton.Location = new System.Drawing.Point(248, 47);
+            this.appealsDataPathButton.Name = "appealsDataPathButton";
+            this.appealsDataPathButton.Size = new System.Drawing.Size(135, 29);
+            this.appealsDataPathButton.TabIndex = 1;
+            this.appealsDataPathButton.Text = "Выбрать файл";
+            this.appealsDataPathButton.UseVisualStyleBackColor = true;
+            // 
+            // RCCDataFilePath
+            // 
+            this.RCCDataFilePath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RCCDataFilePath.Location = new System.Drawing.Point(12, 12);
+            this.RCCDataFilePath.Name = "RCCDataFilePath";
+            this.RCCDataFilePath.PlaceholderText = "Путь к данным по РКК";
+            this.RCCDataFilePath.ReadOnly = true;
+            this.RCCDataFilePath.Size = new System.Drawing.Size(230, 27);
+            this.RCCDataFilePath.TabIndex = 2;
+            // 
+            // appealsDataFilePath
+            // 
+            this.appealsDataFilePath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.appealsDataFilePath.Location = new System.Drawing.Point(12, 48);
+            this.appealsDataFilePath.Name = "appealsDataFilePath";
+            this.appealsDataFilePath.PlaceholderText = "Путь к данным по обращениям";
+            this.appealsDataFilePath.ReadOnly = true;
+            this.appealsDataFilePath.Size = new System.Drawing.Size(230, 27);
+            this.appealsDataFilePath.TabIndex = 3;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ExecutorName,
+            this.RCCCount,
+            this.appealsCount,
+            this.documentsTotal});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 82);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(776, 321);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // ExecutorName
+            // 
+            this.ExecutorName.HeaderText = "Ответственный исполнитель";
+            this.ExecutorName.MinimumWidth = 6;
+            this.ExecutorName.Name = "ExecutorName";
+            this.ExecutorName.ReadOnly = true;
+            this.ExecutorName.Width = 217;
+            // 
+            // RCCCount
+            // 
+            this.RCCCount.HeaderText = "Количество РКК";
+            this.RCCCount.MinimumWidth = 6;
+            this.RCCCount.Name = "RCCCount";
+            this.RCCCount.ReadOnly = true;
+            this.RCCCount.Width = 137;
+            // 
+            // appealsCount
+            // 
+            this.appealsCount.HeaderText = "Количество обращений";
+            this.appealsCount.MinimumWidth = 6;
+            this.appealsCount.Name = "appealsCount";
+            this.appealsCount.ReadOnly = true;
+            this.appealsCount.Width = 187;
+            // 
+            // documentsTotal
+            // 
+            this.documentsTotal.HeaderText = "Суммарно документов";
+            this.documentsTotal.MinimumWidth = 6;
+            this.documentsTotal.Name = "documentsTotal";
+            this.documentsTotal.ReadOnly = true;
+            this.documentsTotal.Width = 180;
+            // 
+            // saveAsRtf
+            // 
+            this.saveAsRtf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveAsRtf.Location = new System.Drawing.Point(627, 409);
+            this.saveAsRtf.Name = "saveAsRtf";
+            this.saveAsRtf.Size = new System.Drawing.Size(161, 29);
+            this.saveAsRtf.TabIndex = 5;
+            this.saveAsRtf.Text = "Сохранить отчет";
+            this.saveAsRtf.UseVisualStyleBackColor = true;
+            // 
+            // leadTimeValueLabel
+            // 
+            this.leadTimeValueLabel.AutoSize = true;
+            this.leadTimeValueLabel.Location = new System.Drawing.Point(248, 413);
+            this.leadTimeValueLabel.Name = "leadTimeValueLabel";
+            this.leadTimeValueLabel.Size = new System.Drawing.Size(0, 20);
+            this.leadTimeValueLabel.TabIndex = 6;
+            // 
+            // leadTimeLabel
+            // 
+            this.leadTimeLabel.AutoSize = true;
+            this.leadTimeLabel.Location = new System.Drawing.Point(15, 413);
+            this.leadTimeLabel.Name = "leadTimeLabel";
+            this.leadTimeLabel.Size = new System.Drawing.Size(227, 20);
+            this.leadTimeLabel.TabIndex = 6;
+            this.leadTimeLabel.Text = "Время выполнения алгоритма:";
+            // 
+            // countButton
+            // 
+            this.countButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.countButton.Enabled = false;
+            this.countButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.countButton.Location = new System.Drawing.Point(389, 12);
+            this.countButton.Name = "countButton";
+            this.countButton.Size = new System.Drawing.Size(399, 63);
+            this.countButton.TabIndex = 7;
+            this.countButton.Text = "Посчитать";
+            this.countButton.UseVisualStyleBackColor = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.countButton);
+            this.Controls.Add(this.leadTimeLabel);
+            this.Controls.Add(this.leadTimeValueLabel);
+            this.Controls.Add(this.saveAsRtf);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.appealsDataFilePath);
+            this.Controls.Add(this.RCCDataFilePath);
+            this.Controls.Add(this.appealsDataPathButton);
+            this.Controls.Add(this.RCCDataFilePathButton);
+            this.Name = "Form1";
+            this.Text = "q";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private Button RCCDataFilePathButton;
+        private Button appealsDataPathButton;
+        private TextBox RCCDataFilePath;
+        private TextBox appealsDataFilePath;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ExecutorName;
+        private DataGridViewTextBoxColumn RCCCount;
+        private DataGridViewTextBoxColumn appealsCount;
+        private DataGridViewTextBoxColumn documentsTotal;
+        private Button saveAsRtf;
+        private Label leadTimeValueLabel;
+        private Label leadTimeLabel;
+        private Button countButton;
     }
 }
