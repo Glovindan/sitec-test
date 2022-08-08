@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RCCDataFilePathButton = new System.Windows.Forms.Button();
-            this.appealsDataPathButton = new System.Windows.Forms.Button();
-            this.RCCDataFilePath = new System.Windows.Forms.TextBox();
-            this.appealsDataFilePath = new System.Windows.Forms.TextBox();
+            this.selectRCCPathButton = new System.Windows.Forms.Button();
+            this.selectAppealsPathButton = new System.Windows.Forms.Button();
+            this.RCCPath = new System.Windows.Forms.TextBox();
+            this.appealsPath = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ExecutorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RCCCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,45 +44,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // RCCDataFilePathButton
+            // selectRCCPathButton
             // 
-            this.RCCDataFilePathButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RCCDataFilePathButton.Location = new System.Drawing.Point(248, 12);
-            this.RCCDataFilePathButton.Name = "RCCDataFilePathButton";
-            this.RCCDataFilePathButton.Size = new System.Drawing.Size(135, 29);
-            this.RCCDataFilePathButton.TabIndex = 0;
-            this.RCCDataFilePathButton.Text = "Выбрать файл";
-            this.RCCDataFilePathButton.UseVisualStyleBackColor = true;
+            this.selectRCCPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.selectRCCPathButton.Location = new System.Drawing.Point(363, 12);
+            this.selectRCCPathButton.Name = "selectRCCPathButton";
+            this.selectRCCPathButton.Size = new System.Drawing.Size(135, 29);
+            this.selectRCCPathButton.TabIndex = 0;
+            this.selectRCCPathButton.Text = "Выбрать файл";
+            this.selectRCCPathButton.UseVisualStyleBackColor = true;
+            this.selectRCCPathButton.Click += new System.EventHandler(this.selectRCCPathButton_Click);
             // 
-            // appealsDataPathButton
+            // selectAppealsPathButton
             // 
-            this.appealsDataPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.appealsDataPathButton.Location = new System.Drawing.Point(248, 47);
-            this.appealsDataPathButton.Name = "appealsDataPathButton";
-            this.appealsDataPathButton.Size = new System.Drawing.Size(135, 29);
-            this.appealsDataPathButton.TabIndex = 1;
-            this.appealsDataPathButton.Text = "Выбрать файл";
-            this.appealsDataPathButton.UseVisualStyleBackColor = true;
+            this.selectAppealsPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.selectAppealsPathButton.Location = new System.Drawing.Point(363, 47);
+            this.selectAppealsPathButton.Name = "selectAppealsPathButton";
+            this.selectAppealsPathButton.Size = new System.Drawing.Size(135, 29);
+            this.selectAppealsPathButton.TabIndex = 1;
+            this.selectAppealsPathButton.Text = "Выбрать файл";
+            this.selectAppealsPathButton.UseVisualStyleBackColor = true;
+            this.selectAppealsPathButton.Click += new System.EventHandler(this.selectAppealsPathButton_Click);
             // 
-            // RCCDataFilePath
+            // RCCPath
             // 
-            this.RCCDataFilePath.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RCCDataFilePath.Location = new System.Drawing.Point(12, 12);
-            this.RCCDataFilePath.Name = "RCCDataFilePath";
-            this.RCCDataFilePath.PlaceholderText = "Путь к данным по РКК";
-            this.RCCDataFilePath.ReadOnly = true;
-            this.RCCDataFilePath.Size = new System.Drawing.Size(230, 27);
-            this.RCCDataFilePath.TabIndex = 2;
+            this.RCCPath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RCCPath.Location = new System.Drawing.Point(12, 12);
+            this.RCCPath.Name = "RCCPath";
+            this.RCCPath.PlaceholderText = "Путь к данным по РКК";
+            this.RCCPath.Size = new System.Drawing.Size(345, 27);
+            this.RCCPath.TabIndex = 2;
             // 
-            // appealsDataFilePath
+            // appealsPath
             // 
-            this.appealsDataFilePath.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.appealsDataFilePath.Location = new System.Drawing.Point(12, 48);
-            this.appealsDataFilePath.Name = "appealsDataFilePath";
-            this.appealsDataFilePath.PlaceholderText = "Путь к данным по обращениям";
-            this.appealsDataFilePath.ReadOnly = true;
-            this.appealsDataFilePath.Size = new System.Drawing.Size(230, 27);
-            this.appealsDataFilePath.TabIndex = 3;
+            this.appealsPath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.appealsPath.Location = new System.Drawing.Point(12, 48);
+            this.appealsPath.Name = "appealsPath";
+            this.appealsPath.PlaceholderText = "Путь к данным по обращениям";
+            this.appealsPath.Size = new System.Drawing.Size(345, 27);
+            this.appealsPath.TabIndex = 3;
             // 
             // dataGridView1
             // 
@@ -146,6 +146,7 @@
             this.saveAsRtf.TabIndex = 5;
             this.saveAsRtf.Text = "Сохранить отчет";
             this.saveAsRtf.UseVisualStyleBackColor = true;
+            this.saveAsRtf.Click += new System.EventHandler(this.saveAsRtf_Click);
             // 
             // leadTimeValueLabel
             // 
@@ -169,12 +170,13 @@
             this.countButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.countButton.Enabled = false;
             this.countButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.countButton.Location = new System.Drawing.Point(389, 12);
+            this.countButton.Location = new System.Drawing.Point(504, 12);
             this.countButton.Name = "countButton";
-            this.countButton.Size = new System.Drawing.Size(399, 63);
+            this.countButton.Size = new System.Drawing.Size(284, 63);
             this.countButton.TabIndex = 7;
             this.countButton.Text = "Посчитать";
             this.countButton.UseVisualStyleBackColor = false;
+            this.countButton.Click += new System.EventHandler(this.countButton_Click);
             // 
             // Form1
             // 
@@ -186,10 +188,10 @@
             this.Controls.Add(this.leadTimeValueLabel);
             this.Controls.Add(this.saveAsRtf);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.appealsDataFilePath);
-            this.Controls.Add(this.RCCDataFilePath);
-            this.Controls.Add(this.appealsDataPathButton);
-            this.Controls.Add(this.RCCDataFilePathButton);
+            this.Controls.Add(this.appealsPath);
+            this.Controls.Add(this.RCCPath);
+            this.Controls.Add(this.selectAppealsPathButton);
+            this.Controls.Add(this.selectRCCPathButton);
             this.Name = "Form1";
             this.Text = "q";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -200,10 +202,10 @@
 
         #endregion
 
-        private Button RCCDataFilePathButton;
-        private Button appealsDataPathButton;
-        private TextBox RCCDataFilePath;
-        private TextBox appealsDataFilePath;
+        private Button selectRCCPathButton;
+        private Button selectAppealsPathButton;
+        private TextBox RCCPath;
+        private TextBox appealsPath;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ExecutorName;
         private DataGridViewTextBoxColumn RCCCount;
