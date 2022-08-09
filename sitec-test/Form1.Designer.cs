@@ -32,7 +32,7 @@
             this.selectAppealsPathButton = new System.Windows.Forms.Button();
             this.RCCPath = new System.Windows.Forms.TextBox();
             this.appealsPath = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.outputTable = new System.Windows.Forms.DataGridView();
             this.ExecutorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RCCCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appealsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@
             this.leadTimeValueLabel = new System.Windows.Forms.Label();
             this.leadTimeLabel = new System.Windows.Forms.Label();
             this.countButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outputTable)).BeginInit();
             this.SuspendLayout();
             // 
             // selectRCCPathButton
@@ -84,26 +84,26 @@
             this.appealsPath.Size = new System.Drawing.Size(345, 27);
             this.appealsPath.TabIndex = 3;
             // 
-            // dataGridView1
+            // outputTable
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.outputTable.AllowUserToAddRows = false;
+            this.outputTable.AllowUserToDeleteRows = false;
+            this.outputTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.outputTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.outputTable.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.outputTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.outputTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ExecutorName,
             this.RCCCount,
             this.appealsCount,
             this.documentsTotal});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 82);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 321);
-            this.dataGridView1.TabIndex = 4;
+            this.outputTable.Location = new System.Drawing.Point(12, 82);
+            this.outputTable.Name = "outputTable";
+            this.outputTable.ReadOnly = true;
+            this.outputTable.RowHeadersWidth = 51;
+            this.outputTable.RowTemplate.Height = 29;
+            this.outputTable.Size = new System.Drawing.Size(776, 321);
+            this.outputTable.TabIndex = 4;
             // 
             // ExecutorName
             // 
@@ -187,14 +187,14 @@
             this.Controls.Add(this.leadTimeLabel);
             this.Controls.Add(this.leadTimeValueLabel);
             this.Controls.Add(this.saveAsRtf);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.outputTable);
             this.Controls.Add(this.appealsPath);
             this.Controls.Add(this.RCCPath);
             this.Controls.Add(this.selectAppealsPathButton);
             this.Controls.Add(this.selectRCCPathButton);
             this.Name = "Form1";
-            this.Text = "q";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Ситек";
+            ((System.ComponentModel.ISupportInitialize)(this.outputTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,7 +206,7 @@
         private Button selectAppealsPathButton;
         private TextBox RCCPath;
         private TextBox appealsPath;
-        private DataGridView dataGridView1;
+        private DataGridView outputTable;
         private DataGridViewTextBoxColumn ExecutorName;
         private DataGridViewTextBoxColumn RCCCount;
         private DataGridViewTextBoxColumn appealsCount;
