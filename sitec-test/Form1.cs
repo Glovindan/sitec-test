@@ -80,11 +80,9 @@ namespace sitec_test
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            //Запарсить текстовые файлы
             string[] RCCLines = System.IO.File.ReadAllLines(RCCPath.Text);
             string[] appealsLines = System.IO.File.ReadAllLines(appealsPath.Text);
 
-            //Подсчитать
             countDocuments(RCCLines, 0);
             countDocuments(appealsLines, 1);
 
@@ -94,7 +92,6 @@ namespace sitec_test
                 ts.Seconds, ts.Milliseconds);
             leadTimeValueLabel.Text = elapsedTime;
 
-            //Вывести в таблицу
             foreach (var executorName in this.executorData.Keys)
             {
                 var RCCCount = this.executorData[executorName][0];
