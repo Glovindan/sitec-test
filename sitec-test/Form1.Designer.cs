@@ -46,6 +46,7 @@
             // 
             // selectRCCPathButton
             // 
+            this.selectRCCPathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectRCCPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.selectRCCPathButton.Location = new System.Drawing.Point(363, 12);
             this.selectRCCPathButton.Name = "selectRCCPathButton";
@@ -57,6 +58,7 @@
             // 
             // selectAppealsPathButton
             // 
+            this.selectAppealsPathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectAppealsPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.selectAppealsPathButton.Location = new System.Drawing.Point(363, 47);
             this.selectAppealsPathButton.Name = "selectAppealsPathButton";
@@ -68,6 +70,8 @@
             // 
             // RCCPath
             // 
+            this.RCCPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RCCPath.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RCCPath.Location = new System.Drawing.Point(12, 12);
             this.RCCPath.Name = "RCCPath";
@@ -77,6 +81,8 @@
             // 
             // appealsPath
             // 
+            this.appealsPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.appealsPath.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.appealsPath.Location = new System.Drawing.Point(12, 48);
             this.appealsPath.Name = "appealsPath";
@@ -88,8 +94,10 @@
             // 
             this.outputTable.AllowUserToAddRows = false;
             this.outputTable.AllowUserToDeleteRows = false;
-            this.outputTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.outputTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.outputTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.outputTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.outputTable.BackgroundColor = System.Drawing.SystemColors.Window;
             this.outputTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.outputTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -112,7 +120,6 @@
             this.ExecutorName.MinimumWidth = 6;
             this.ExecutorName.Name = "ExecutorName";
             this.ExecutorName.ReadOnly = true;
-            this.ExecutorName.Width = 217;
             // 
             // RCCCount
             // 
@@ -120,7 +127,6 @@
             this.RCCCount.MinimumWidth = 6;
             this.RCCCount.Name = "RCCCount";
             this.RCCCount.ReadOnly = true;
-            this.RCCCount.Width = 137;
             // 
             // appealsCount
             // 
@@ -128,7 +134,6 @@
             this.appealsCount.MinimumWidth = 6;
             this.appealsCount.Name = "appealsCount";
             this.appealsCount.ReadOnly = true;
-            this.appealsCount.Width = 187;
             // 
             // documentsTotal
             // 
@@ -136,11 +141,12 @@
             this.documentsTotal.MinimumWidth = 6;
             this.documentsTotal.Name = "documentsTotal";
             this.documentsTotal.ReadOnly = true;
-            this.documentsTotal.Width = 180;
             // 
             // saveAsRtf
             // 
+            this.saveAsRtf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveAsRtf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveAsRtf.Enabled = false;
             this.saveAsRtf.Location = new System.Drawing.Point(627, 409);
             this.saveAsRtf.Name = "saveAsRtf";
             this.saveAsRtf.Size = new System.Drawing.Size(161, 29);
@@ -151,6 +157,7 @@
             // 
             // leadTimeValueLabel
             // 
+            this.leadTimeValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.leadTimeValueLabel.AutoSize = true;
             this.leadTimeValueLabel.Location = new System.Drawing.Point(248, 413);
             this.leadTimeValueLabel.Name = "leadTimeValueLabel";
@@ -159,6 +166,7 @@
             // 
             // leadTimeLabel
             // 
+            this.leadTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.leadTimeLabel.AutoSize = true;
             this.leadTimeLabel.Location = new System.Drawing.Point(15, 413);
             this.leadTimeLabel.Name = "leadTimeLabel";
@@ -168,6 +176,7 @@
             // 
             // countButton
             // 
+            this.countButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.countButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.countButton.Enabled = false;
             this.countButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);

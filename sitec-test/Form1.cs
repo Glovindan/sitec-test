@@ -6,7 +6,6 @@ namespace sitec_test
         public Form1()
         {
             InitializeComponent();
-            this.executorData = new Dictionary<string, int[]>();
         }
 
         private string getFilePathFromDialog()
@@ -74,25 +73,29 @@ namespace sitec_test
 
         private void countButton_Click(object sender, EventArgs e)
         {
-            //Запарсить текстовые файлы и вывести время
+            outputTable.Rows.Clear();
+            outputTable.Refresh();
+            this.executorData = new Dictionary<string, int[]>();
+
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            //Запарсить текстовые файлы
             string[] RCCLines = System.IO.File.ReadAllLines(RCCPath.Text);
             string[] appealsLines = System.IO.File.ReadAllLines(appealsPath.Text);
-
-            stopWatch.Stop();
-            TimeSpan ts = stopWatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}m {1:00}.{2:00}s",
-                ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-            leadTimeValueLabel.Text = elapsedTime;
 
             //Подсчитать
             countDocuments(RCCLines, 0);
             countDocuments(appealsLines, 1);
 
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0} s {1} ms",
+                ts.Seconds, ts.Milliseconds);
+            leadTimeValueLabel.Text = elapsedTime;
+
             //Вывести в таблицу
-            foreach(var executorName in this.executorData.Keys)
+            foreach (var executorName in this.executorData.Keys)
             {
                 var RCCCount = this.executorData[executorName][0];
                 var appealsCount = this.executorData[executorName][1];
@@ -104,20 +107,87 @@ namespace sitec_test
                 outputTable.Rows[index].Cells["appealsCount"].Value = appealsCount;
                 outputTable.Rows[index].Cells["documentsTotal"].Value = documentsTotal;
             }
+
+            saveAsRtf.Enabled = true;
         }
 
         private void saveAsRtf_Click(object sender, EventArgs e)
         {
-            //Сгенерировать rtf и выдать
+            int RCCTotal = 0;
+            int appealsTotal = 0;
+            int documentsTotal = 0;
+            foreach (var item in this.executorData)
+            {
+                RCCTotal += item.Value[0];
+                appealsTotal += item.Value[1];
+                documentsTotal += item.Value[0] + item.Value[1];
+            }
+
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.FileName = "report.txt";
+
+            if(sf.ShowDialog() == DialogResult.OK)
+            {
+                string savePath = sf.FileName;
+                StreamWriter sw = File.CreateText(savePath);
+                sw.WriteLine("Справка о неисполненных документах и обращениях граждан");
+                sw.WriteLine("Не исполнено в срок {0} документов, из них: ", documentsTotal);
+                sw.WriteLine("- количество неисполненных входящих документов: {0}", RCCTotal);
+                sw.WriteLine("- количество неисполненных письменных обращений граждан: {0}", appealsTotal);
+
+                var sortedColumn = outputTable.SortedColumn;
+                string sortedColumnName = "Нет";
+                if (sortedColumn != null)
+                {
+                    sortedColumnName = sortedColumn.HeaderText;
+                }   
+                sw.WriteLine("Сортировка: {0}", sortedColumnName);
+                sw.WriteLine();
+
+                for (int j = 0; j < outputTable.Columns.Count; j++)
+                {
+                    var value = outputTable.Columns[j].HeaderText;
+                    string tabulation = "\t";
+                    if (value != null && value.Length < 16)
+                        tabulation = "\t\t";
+
+                    sw.Write(outputTable.Columns[j].HeaderText + tabulation);
+                }
+                sw.WriteLine();
+
+                for (int i = 0; i < outputTable.Rows.Count; i++)
+                {
+                    for (int j = 0; j < outputTable.Columns.Count; j++)
+                    {
+                        var value = outputTable.Rows[i].Cells[j].Value.ToString();
+                        string tabulation = "\t\t";
+                        if (value != null && value.Length < 16) 
+                            tabulation = "\t\t\t";
+
+                        sw.Write(value + tabulation);
+                    }
+                    sw.WriteLine();
+                }
+
+                sw.WriteLine();
+                sw.WriteLine("Дата составления справки: {0}", DateTime.Now.ToString("dd.MM.yyyy"));
+                sw.Close();
+            }
         }
 
         private void outputTable_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            int num1 = (int)outputTable.Rows[e.RowIndex1].Cells[e.Column.Name].Value;
-            int num2 = (int)outputTable.Rows[e.RowIndex2].Cells[e.Column.Name].Value;
-            e.SortResult = num1.CompareTo(num2);
+            if(e.Column.Name == "ExecutorName")
+            {
+                e.SortResult = String.Compare(e.CellValue1.ToString(), e.CellValue2.ToString());
+                e.Handled = true;
+                return;
+            }
 
-            if (e.SortResult == 0)
+            int num1 = (int)e.CellValue1;
+            int num2 = (int)e.CellValue2;
+
+            if (num1 == num2)
             {
                 if (e.Column.Name == "RCCCount")
                 {
@@ -129,8 +199,8 @@ namespace sitec_test
                     num1 = (int)outputTable.Rows[e.RowIndex1].Cells["RCCCount"].Value;
                     num2 = (int)outputTable.Rows[e.RowIndex2].Cells["RCCCount"].Value;
                 }
-                e.SortResult = num1.CompareTo(num2);
             }
+            e.SortResult = num1.CompareTo(num2);
             e.Handled = true;
         }
     }
