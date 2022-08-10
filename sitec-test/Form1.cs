@@ -6,6 +6,7 @@ namespace sitec_test
         public Form1()
         {
             InitializeComponent();
+            this.executorData = new Dictionary<string, int[]>();
         }
 
         private string getFilePathFromDialog()
