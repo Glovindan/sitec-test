@@ -104,6 +104,7 @@
             this.outputTable.RowTemplate.Height = 29;
             this.outputTable.Size = new System.Drawing.Size(776, 321);
             this.outputTable.TabIndex = 4;
+            this.outputTable.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.outputTable_SortCompare);
             // 
             // ExecutorName
             // 

@@ -6,6 +6,7 @@ namespace sitec_test
         public Form1()
         {
             InitializeComponent();
+            this.executorData = new Dictionary<string, int[]>();
         }
 
         private string getFilePathFromDialog()
@@ -87,7 +88,6 @@ namespace sitec_test
             leadTimeValueLabel.Text = elapsedTime;
 
             //Подсчитать
-            this.executorData = new Dictionary<string, int[]> ();
             countDocuments(RCCLines, 0);
             countDocuments(appealsLines, 1);
 
@@ -109,6 +109,29 @@ namespace sitec_test
         private void saveAsRtf_Click(object sender, EventArgs e)
         {
             //Сгенерировать rtf и выдать
+        }
+
+        private void outputTable_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            int num1 = (int)outputTable.Rows[e.RowIndex1].Cells[e.Column.Name].Value;
+            int num2 = (int)outputTable.Rows[e.RowIndex2].Cells[e.Column.Name].Value;
+            e.SortResult = num1.CompareTo(num2);
+
+            if (e.SortResult == 0)
+            {
+                if (e.Column.Name == "RCCCount")
+                {
+                    num1 = (int)outputTable.Rows[e.RowIndex1].Cells["appealsCount"].Value;
+                    num2 = (int)outputTable.Rows[e.RowIndex2].Cells["appealsCount"].Value;
+                }
+                else
+                {
+                    num1 = (int)outputTable.Rows[e.RowIndex1].Cells["RCCCount"].Value;
+                    num2 = (int)outputTable.Rows[e.RowIndex2].Cells["RCCCount"].Value;
+                }
+                e.SortResult = num1.CompareTo(num2);
+            }
+            e.Handled = true;
         }
     }
 }
